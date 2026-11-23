@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#a9513e"><title>Teacher Mei – Học tiếng Trung</title>
+<style>
+:root{--red:#a9513e;--red2:#c8755c;--ink:#433832;--muted:#7d716b;--line:#eadfd7;--bg:#fffaf6;--mint:#edf6ef;--gold:#fff4d9}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,"Segoe UI",sans-serif}
+header{background:linear-gradient(120deg,#ffede5,#fff5d9 60%,#e8f5ed);padding:22px max(18px,calc((100vw - 1120px)/2))}
+.head{display:flex;justify-content:space-between;align-items:center}.logo{font-size:clamp(23px,4vw,34px);font-weight:900;color:var(--red)}.panda{font-size:48px}.tagline{color:#765c52;font-size:14px}
+nav{max-width:1120px;margin:16px auto 0;padding:0 16px;display:flex;gap:8px;flex-wrap:wrap}
+button,input,select{font:inherit}button{cursor:pointer}.nav{border:1px solid var(--line);background:white;border-radius:30px;padding:9px 15px;color:var(--ink)}.nav.active,.primary{background:var(--red);border-color:var(--red);color:white}
+main{max-width:1120px;margin:auto;padding:20px 16px 55px}.title{font-size:23px;margin:7px 0 12px}.muted{color:var(--muted)}.small{font-size:13px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}
+.card{background:white;border:1px solid var(--line);border-radius:17px;padding:17px;box-shadow:0 7px 24px #59341c0a}.course{text-align:left;min-height:145px}.course:hover,.lesson:hover{border-color:var(--red2);transform:translateY(-1px)}.emoji{font-size:30px}.chip{display:inline-block;padding:4px 10px;border-radius:30px;background:#fff0e8;color:#914a39;font-size:12px}
+.lesson{display:flex;align-items:center;justify-content:space-between;text-align:left;width:100%;background:white;border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin:8px 0;color:var(--ink)}.lesson small{display:block;color:var(--muted);margin-top:3px}
+.primary,.secondary{border:0;border-radius:11px;padding:10px 15px;font-weight:650}.secondary{background:#fff0e8;color:#904c3a}.primary:disabled{opacity:.4;cursor:not-allowed}
+.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.between{justify-content:space-between}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.tab{border:1px solid var(--line);background:white;padding:8px 13px;border-radius:30px}.tab.active{background:#f8e6de;border-color:#d9a18f;color:#854332}
+table{width:100%;border-collapse:collapse;background:white;font-size:14px}th,td{padding:10px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#fff1e9;color:#794538}
+.vocablist{display:grid;gap:10px}.vocabitem{display:grid;grid-template-columns:70px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px;background:white}.hanzi{font-size:25px;font-weight:800;color:#884a3b}.py{color:#a45c48;font-size:14px}.example{font-size:13px;color:var(--muted);margin-top:4px}
+input[type=search]{border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:220px;max-width:100%}
+.flash{background:linear-gradient(135deg,#fff5e9,#edf7f0);border:1px solid #ebdfd0;border-radius:18px;padding:25px;text-align:center}.flash .hanzi{font-size:48px}.flash .meaning{font-size:20px}
+.question{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin:12px 0}.option{width:100%;display:block;text-align:left;border:1px solid var(--line);background:white;border-radius:10px;padding:11px 13px;margin:8px 0;color:var(--ink)}.option.chosen{border:2px solid var(--red);background:#fff4ee}.option.correct{border-color:#47966a;background:#eff8f1}.option.wrong{border-color:#c35c50;background:#fff0ed}
+.progress{height:8px;background:#eee5df;border-radius:9px;overflow:hidden}.progress span{display:block;background:var(--red);height:100%}.note{background:var(--mint);border-radius:13px;padding:14px;margin:12px 0}.warning{background:var(--gold);border-radius:13px;padding:14px;margin:12px 0}.dialogue{border-left:3px solid #d9a18f;padding:8px 13px;margin:10px 0;background:#fffaf6;border-radius:0 10px 10px 0}
+footer{text-align:center;border-top:1px solid var(--line);padding:20px;color:var(--muted);font-size:13px}
+@media(max-width:600px){.vocabitem{grid-template-columns:55px 1fr auto}.vocabitem .hanzi{font-size:21px}th,td{padding:8px 5px;font-size:13px}}
+</style></head>
+<body>
+<header><div class="head"><div><div class="logo">🌸 TEACHER MEI</div><div class="tagline">学中文 · 快乐学习 | Học tiếng Trung vui vẻ</div></div><div class="panda">🐼</div></div><h1 style="font-size:clamp(22px,4vw,32px);margin:18px 0 2px">Học chắc từng bài – Tiến bộ mỗi ngày!</h1><div class="tagline">Từ vựng · Ngữ pháp · Hội thoại · Luyện tập · Kiểm tra</div></header>
+<nav><button class="nav active" data-nav="home">🏠 Trang chủ</button><button class="nav" data-nav="courses">📚 Khóa học</button><button class="nav" data-nav="practice">✏️ Luyện tập</button></nav>
+<main id="app"></main><footer>🌸 TEACHER MEI · HỌC VUI – NHỚ LÂU – TIẾN BỘ MỖI NGÀY</footer>
+<script>
+const yctTitles=["我三年级","你喜欢什么运动？","我在画画儿呢","喂，您好！","再吃几个","我能自己穿","生日快乐！","下雪了","笑一笑","谁跑得快？","妈妈把糖给弟弟了","复习"];
+const hskTitles=["她请我们吃了北京烤鸭","还是打车去北大吧","我想去西安旅游","你穿红色的很好看","第一次去中国朋友家","小雪，生日快乐！","他篮球打得很好","虽然你忘了，但是我记得","我去买杯奶茶","就要考试了","我最喜欢吃中国菜","这里比北京冷多了","我们爱上中文课","一个人过年多没意思啊","我想再去一次中国"];
+const hskGrammar=[
+["语气助词“吧”（2）","“是……的”句","兼语句"],
+["固定格式“还是……吧”","用“多”表达概数","动词或动词性短语、主谓短语作定语"],
+["结果补语","动词重叠（1）","动词重叠（2）"],
+["动态助词“过”","因果复句“因为……所以……”","“的”字短语"],
+["简单趋向补语（1）","简单趋向补语（2）","固定格式“都……了”"],
+["形容词重叠","固定短语“什么的”","结构助词“地”"],
+["紧缩复句“一……就……”","状态补语（1）","状态补语（2）"],
+["比较句","转折复句“虽然……但是……”"],
+["比较句","动词“离”","时量补语"],
+["主谓谓语句","选择疑问句","固定格式“要/快/快要/就要……了”"],
+["动态助词“着”","动态助词“着”","程度副词“最”"],
+["比较句（4）（5）（6）"],["双宾语句","比较句"],["存现句","程度副词“多”","复合趋向补语"],["动量补语","“有”字句"]
+];
+// HSK L1 words transcribed from the supplied scan, pages 2–7 of the lesson.
+const hskVocab={
+1:[
+["就","jiù","ngay; đúng; chính","我马上就来。","Wǒ mǎshàng jiù lái. – Tôi đến ngay."],
+["给","gěi","cho; đưa cho","我给你打电话。","Wǒ gěi nǐ dǎ diànhuà. – Tôi gọi điện cho bạn."],
+["让","ràng","để; cho phép; bảo","老师让我读课文。","Lǎoshī ràng wǒ dú kèwén. – Giáo viên bảo tôi đọc bài."],
+["接","jiē","đón; tiếp đón","我去机场接朋友。","Wǒ qù jīchǎng jiē péngyou. – Tôi ra sân bay đón bạn."],
+["次","cì","lần; lượt","这是我第一次来北京。","Zhè shì wǒ dì-yī cì lái Běijīng. – Đây là lần đầu tôi đến Bắc Kinh."],
+["旅游","lǚyóu","du lịch","我们是来旅游的。","Wǒmen shì lái lǚyóu de. – Chúng tôi đến để du lịch."],
+["帮忙","bāngmáng","giúp đỡ; giúp một tay","你能帮我一个忙吗？","Nǐ néng bāng wǒ yí ge máng ma? – Bạn giúp tôi một việc được không?"],
+["不好意思","bù hǎoyìsi","ngại quá; xin lỗi; ngượng","不好意思，我来晚了。","Bù hǎoyìsi, wǒ lái wǎn le. – Xin lỗi, tôi đến muộn."],
+["已经","yǐjīng","đã","我已经到北京了。","Wǒ yǐjīng dào Běijīng le. – Tôi đã đến Bắc Kinh rồi."],
+["那","nà","thế thì; vậy thì","那我给他打电话。","Nà wǒ gěi tā dǎ diànhuà. – Vậy tôi gọi cho anh ấy."],
+["介绍","jièshào","giới thiệu","我来介绍一下。","Wǒ lái jièshào yíxià. – Để tôi giới thiệu một chút."],
+["有时","yǒushí","có lúc; đôi khi","有时我坐公交车去学校。","Yǒushí wǒ zuò gōngjiāochē qù xuéxiào. – Đôi khi tôi đi xe buýt đến trường."],
+["懂","dǒng","hiểu","我不太懂他的意思。","Wǒ bú tài dǒng tā de yìsi. – Tôi không hiểu lắm ý của anh ấy."],
+["意思","yìsi","ý; ý nghĩa","你明白我的意思吗？","Nǐ míngbai wǒ de yìsi ma? – Bạn hiểu ý tôi không?"]
+],
+2:[
+["公交车","gōngjiāochē","xe buýt","我坐公交车去学校。","Wǒ zuò gōngjiāochē qù xuéxiào. – Tôi đi xe buýt đến trường."],
+["但","dàn","nhưng; tuy nhiên","车站不远，但我想打车。","Chēzhàn bù yuǎn, dàn wǒ xiǎng dǎchē. – Bến xe không xa, nhưng tôi muốn đi taxi."],
+["车站","chēzhàn","bến xe; nhà ga","车站在哪儿？","Chēzhàn zài nǎr? – Bến xe ở đâu?"],
+["远","yuǎn","xa","学校离这儿很远。","Xuéxiào lí zhèr hěn yuǎn. – Trường học cách đây rất xa."],
+["打车","dǎchē","bắt taxi; đi taxi","我们打车去吧。","Wǒmen dǎchē qù ba. – Chúng ta đi taxi nhé."],
+["还是","háishi","hay là; vẫn; tốt hơn là","还是打车去吧。","Háishi dǎchē qù ba. – Hay là đi taxi nhé."]
+]
+};
+const yctVocab={1:[
+["年级","niánjí","khối lớp","我上三年级。","Wǒ shàng sān niánjí. – Tôi học lớp 3."],
+["课","kè","tiết học; môn học","我们都有汉语课。","Wǒmen dōu yǒu Hànyǔ kè. – Chúng tôi đều có tiết tiếng Trung."],
+["都","dōu","đều","我们都是学生。","Wǒmen dōu shì xuésheng. – Chúng tôi đều là học sinh."],
+["班","bān","lớp","我们班有二十个学生。","Wǒmen bān yǒu èrshí ge xuésheng. – Lớp chúng tôi có 20 học sinh."],
+["还","hái","còn; vẫn; cũng","还有一个是女老师。","Hái yǒu yí ge shì nǚ lǎoshī. – Còn một người nữa là cô giáo."],
+["新","xīn","mới","她是新老师。","Tā shì xīn lǎoshī. – Cô ấy là giáo viên mới."]
+]};
+const state={nav:"home",course:"HSK2",lesson:1,tab:"vocab",word:0,quiz:[],qi:0,answers:{},submitted:false};
+const app=document.getElementById("app");
+function vocab(){return state.course==="HSK2"?(hskVocab[state.lesson]||[]):(yctVocab[state.lesson]||[])}
+function title(){return state.course==="HSK2"?hskTitles[state.lesson-1]:yctTitles[state.lesson-1]}
+function setNav(n){state.nav=n;document.querySelectorAll("[data-nav]").forEach(b=>b.classList.toggle("active",b.dataset.nav===n));render()}
+function home(){app.innerHTML=`<h2 class="title">Chọn chương trình học</h2><div class="grid">
+<button class="card course" data-course="YCT3"><div class="emoji">🐼</div><span class="chip">Thiếu nhi</span><h3>YCT 3</h3><p class="muted">11 bài học + 1 bài ôn tập</p></button>
+<button class="card course" data-course="HSK2"><div class="emoji">🌸</div><span class="chip">HSK 3.0</span><h3>HSK 2 – New HSK Course 2</h3><p class="muted">15 bài học theo sách cô cung cấp</p></button></div>
+<h2 class="title">Học và ôn tập</h2><div class="grid"><div class="card">🀄 <b>Từ vựng theo bài</b><p class="muted">Tra cứu, lọc từ, ví dụ và nghe phát âm.</p></div><div class="card">🧩 <b>Ngữ pháp chi tiết</b><p class="muted">Công thức, cách dùng, ví dụ và lưu ý.</p></div><div class="card">💬 <b>Hội thoại</b><p class="muted">Luyện đọc theo tình huống, pinyin và dịch.</p></div><div class="card">🏆 <b>Ngân hàng câu hỏi</b><p class="muted">Nhiều dạng bài, chấm điểm và xem đáp án.</p></div></div>
+<div class="note"><b>💌 Teacher Mei nhắn bạn</b><br>Học từ mới, đọc câu ví dụ thành tiếng và làm bài luyện tập sau mỗi bài nhé!</div>`}
+function courses(){let arr=state.course==="HSK2"?hskTitles:yctTitles;app.innerHTML=`<div class="row between"><div><h2 class="title">${state.course==="HSK2"?"HSK 2 · Phiên bản 3.0":"YCT Standard Course 3"}</h2><p class="muted small">Chọn bài để học từ vựng, cấu trúc, hội thoại và luyện tập.</p></div><div class="row"><button class="secondary" data-course="YCT3">YCT 3</button><button class="secondary" data-course="HSK2">HSK 2</button></div></div>${arr.map((t,i)=>`<button class="lesson" data-lesson="${i+1}"><span><b>Bài ${i+1}. ${t}</b><small>${state.course==="HSK2"?(hskGrammar[i]||[]).join(" · "):"YCT Standard Course 3"}</small></span><b>›</b></button>`).join("")}<div class="warning small">Phân biệt nội dung đã nhập đầy đủ và phần đang chờ biên soạn: hiện HSK 2 bài 1–2 có từ vựng đã đối chiếu từ PDF; YCT 3 bài 1 có bộ từ mẫu đã xác minh. Các bài còn lại đang là danh mục bài, không giả làm dữ liệu hoàn chỉnh.</div>`}
+function lesson(){let v=vocab();app.innerHTML=`<button class="secondary" data-backlist>← Danh sách bài</button><h2 class="title">${state.course==="HSK2"?"HSK 2":"YCT 3"} · Bài ${state.lesson}</h2><div class="card"><span class="chip">CHỦ ĐỀ</span><h2>${title()}</h2><p class="muted small">${state.course==="HSK2"?(hskGrammar[state.lesson-1]||[]).join(" · "):"Chủ đề theo YCT Standard Course 3"}</p></div>
+<div class="tabs">${[["vocab","🀄 Từ vựng"],["grammar","🧩 Ngữ pháp"],["dialogue","💬 Hội thoại"],["practice","✏️ Luyện tập"],["quiz","🏆 Kiểm tra"]].map(([k,t])=>`<button class="tab ${state.tab===k?"active":""}" data-tab="${k}">${t}</button>`).join("")}</div><section id="lesson-content"></section>`;renderTab()}
+function renderTab(){let box=document.getElementById("lesson-content");if(!box)return;let v=vocab();
+if(state.tab==="vocab"){box.innerHTML=`<div class="row between"><div><h3 class="title">Từ vựng trọng tâm <span class="chip">${v.length} từ đã nhập</span></h3><p class="muted small">Chữ Hán · Pinyin · Nghĩa · Ví dụ</p></div><input id="filter" type="search" placeholder="Tìm chữ Hán / pinyin / nghĩa..."></div><div class="vocablist" id="vocablist">${v.map((w,i)=>wordRow(w,i)).join("")}</div><div class="row" style="margin-top:14px"><button class="primary" data-flash>🃏 Ôn bằng thẻ ghi nhớ</button><button class="secondary" data-practice>✏️ Làm bài tập từ vựng</button></div>`}
+else if(state.tab==="grammar"){let gs=state.course==="HSK2"?(hskGrammar[state.lesson-1]||[]):["Từ vựng và mẫu câu trọng tâm của bài","Cách dùng trong giao tiếp"];box.innerHTML=`<h3 class="title">Ngữ pháp và cấu trúc câu</h3>${gs.map((g,i)=>`<div class="card" style="margin:10px 0"><span class="chip">ĐIỂM ${i+1}</span><h3>${g}</h3><p><b>Cách học:</b> Xác định vị trí của cấu trúc trong câu, chú ý ý nghĩa và ngữ cảnh sử dụng.</p>${grammarExample(state.lesson,i)}</div>`).join("")}<div class="warning small">Các tên điểm ngôn ngữ HSK được lấy theo mục lục sách. Phần giải thích dưới đây là diễn giải sư phạm và ví dụ tự biên soạn, không phải nguyên văn sách.</div>`}
+else if(state.tab==="dialogue"){box.innerHTML=`<h3 class="title">💬 Hội thoại và đọc hiểu</h3>${dialogueContent()}<div class="note">Gợi ý: Đọc từng câu chữ Hán, tự đọc pinyin, sau đó che bản dịch để tự kiểm tra.</div>`}
+else if(state.tab==="practice"){box.innerHTML=`<h3 class="title">✏️ Luyện tập theo dạng</h3><div class="grid"><button class="card course" data-practice="meaning">🀄 <b>Chọn nghĩa đúng</b><p class="muted">10 câu từ vựng</p></button><button class="card course" data-practice="pinyin">🔤 <b>Chọn pinyin</b><p class="muted">10 câu nhận diện âm</p></button><button class="card course" data-practice="sentence">🧩 <b>Hoàn thành câu</b><p class="muted">5 câu ứng dụng</p></button><button class="card course" data-practice="translate">🌏 <b>Dịch câu</b><p class="muted">5 câu hiểu nghĩa</p></button></div><p class="muted small">Bài tập được biên soạn mới dựa trên từ vựng và điểm ngôn ngữ đã xác minh.</p>`}
+else if(state.tab==="quiz"){box.innerHTML=`<div class="card"><h3 class="title">🏆 Kiểm tra cuối bài</h3><p>Bài kiểm tra gồm 20 câu: từ vựng, pinyin, chọn câu đúng, hoàn thành câu và đọc hiểu.</p><p class="muted small">Có chấm điểm, đáp án và giải thích sau khi nộp bài.</p><button class="primary" data-startquiz>🚀 Bắt đầu kiểm tra 20 câu</button></div>`}
+}
+function wordRow(w,i){return `<article class="vocabitem"><div class="hanzi">${w[0]}</div><div><b>${w[0]}</b> <span class="py">${w[1]}</span><div>${w[2]}</div><div class="example">${w[3]}<br>${w[4]}</div></div><button class="secondary" data-say="${w[0]}" aria-label="Nghe phát âm">🔊</button></article>`}
+function grammarExample(lesson,i){let ex=lesson===1?[
+["吧","你们就是她的学生吧？","Nǐmen jiù shì tā de xuésheng ba? – Các bạn chính là học sinh của cô ấy phải không?"],
+["是……的","我们是坐飞机来北京的。","Wǒmen shì zuò fēijī lái Běijīng de. – Chúng tôi đến Bắc Kinh bằng máy bay."],
+["兼语句","我想请你帮个忙。","Wǒ xiǎng qǐng nǐ bāng ge máng. – Tôi muốn nhờ bạn giúp một việc."]
+]:lesson===2?[
+["还是……吧","还是打车去吧。","Háishi dǎchē qù ba. – Hay là đi taxi nhé."],
+["多 + số lượng","这儿有三十多个人。","Zhèr yǒu sānshí duō ge rén. – Ở đây có hơn 30 người."],
+["短语作定语","去北京大学的公交车","Qù Běijīng Dàxué de gōngjiāochē – xe buýt đi Đại học Bắc Kinh."]
+]:[["例句","我今天很高兴。","Wǒ jīntiān hěn gāoxìng. – Hôm nay tôi rất vui."]];
+let e=ex[i]||ex[0];return `<div class="note"><b>Ví dụ:</b><div style="font-size:20px;margin-top:6px">${e[1]}</div><div class="py">${e[2].split(" – ")[0]}</div><div>${e[2].split(" – ")[1]||""}</div></div>`}
+function dialogueContent(){if(state.course==="HSK2"&&state.lesson===1)return `<div class="dialogue"><b>白家月：</b>请问，您是王一雪老师的姐姐吗？<div class="py">Qǐngwèn, nín shì Wáng Yīxuě lǎoshī de jiějie ma?</div>Bạn cho hỏi, bạn là chị của cô Vương Nhất Tuyết phải không?</div><div class="dialogue"><b>王一雪：</b>是的，你们就是她的学生吧？<div class="py">Shì de, nǐmen jiù shì tā de xuésheng ba?</div>Đúng vậy, các bạn chính là học sinh của cô ấy phải không?</div><div class="dialogue"><b>白家月：</b>对。我是白家月，她是安妮。<div class="py">Duì. Wǒ shì Bái Jiāyuè, tā shì Ānnī.</div>Đúng ạ. Tôi là Bạch Gia Nguyệt, cô ấy là Annie.</div><div class="dialogue"><b>王一雪：</b>你们好，我叫王一雪。<div class="py">Nǐmen hǎo, wǒ jiào Wáng Yīxuě.</div>Xin chào các bạn, tôi tên là Vương Nhất Tuyết.</div><p class="muted small">Đoạn trích ngắn theo tình huống bài 1; phần hội thoại đầy đủ xem trong sách.</p>`;
+if(state.course==="HSK2"&&state.lesson===2)return `<div class="dialogue"><b>白家月：</b>请问，这儿有到北京大学的公交车吗？<div class="py">Qǐngwèn, zhèr yǒu dào Běijīng Dàxué de gōngjiāochē ma?</div>Cho hỏi, ở đây có xe buýt đến Đại học Bắc Kinh không?</div><div class="dialogue"><b>服务员：</b>有，但车站有点儿远。<div class="py">Yǒu, dàn chēzhàn yǒudiǎnr yuǎn.</div>Có, nhưng bến xe hơi xa.</div><div class="dialogue"><b>白家月：</b>还是打车去吧。<div class="py">Háishi dǎchē qù ba.</div>Hay là đi taxi nhé.</div>`;
+return `<div class="card"><b>${title()}</b><p class="muted">Phần hội thoại chi tiết của bài này đang chờ nhập/đối chiếu đúng trang giáo trình.</p></div>`}
+function quizData(kind){let v=vocab();let qs=[];
+if(kind==="meaning"||kind==="all"){v.forEach((w,i)=>qs.push({q:`Từ “${w[0]}” có nghĩa là gì?`,opts:[w[2],...v.filter((x,j)=>j!==i).slice(0,3).map(x=>x[2])],a:0,why:`${w[0]} (${w[1]}) nghĩa là ${w[2]}.`}))}
+if(kind==="pinyin"||kind==="all"){v.forEach((w,i)=>qs.push({q:`Pinyin đúng của “${w[0]}” là gì?`,opts:[w[1],...v.filter((x,j)=>j!==i).slice(0,3).map(x=>x[1])],a:0,why:`Pinyin: ${w[1]}.`}))}
+if(kind==="sentence"||kind==="all"){let arr=state.lesson===1?[
+["我已经____北京了。",["到","懂","让","给"],0,"已经到 = đã đến."],
+["老师____我们读课文。",["让","次","远","意思"],0,"让 + người + động từ: bảo/để ai làm gì."],
+["这是我第一____来中国。",["次","给","就","懂"],0,"次 là lượng từ chỉ lần."],
+["我想请你____个忙。",["帮","旅游","接","那"],0,"帮忙: giúp đỡ; 帮个忙: giúp một việc."],
+["我来____一下我的朋友。",["介绍","已经","不好意思","有时"],0,"介绍: giới thiệu."]
+]:[
+["学校离这儿很____。",["远","次","就","给"],0,"远: xa."],
+["我们____打车去吧。",["还是","车站","公交车","但"],0,"还是……吧: hay là… nhé."],
+["我坐____去学校。",["公交车","远","还是","但"],0,"坐公交车: đi xe buýt."],
+["____车站有点儿远。",["但","次","给","懂"],0,"但: nhưng."],
+["请问，____在哪儿？",["车站","还是","远","打车"],0,"车站: bến xe/nhà ga."]
+];arr.forEach(x=>qs.push({q:x[0],opts:x[1],a:x[2],why:x[3]}))}
+if(kind==="all"){let reading=state.lesson===1?[
+["白家月和安妮第一次来北京吗？",["是","不是","课文没说"],0,"Hai bạn nói đây là lần đầu đến Bắc Kinh."],
+["谁来接她们？",["王一雪","陈天中","李文"],0,"Vương Nhất Tuyết đến đón."],
+["白家月她们来北京做什么？",["旅游","工作","看病"],0,"Hai người đến Bắc Kinh du lịch."]
+]:[
+["去北京大学的公交车站怎么样？",["有点儿远","很近","没有车站"],0,"Bến xe hơi xa."],
+["她们最后选择什么方式？",["打车","坐公交车","走路"],0,"Câu chủ đề chọn đi taxi."]
+];reading.forEach(x=>qs.push({q:x[0],opts:x[1],a:x[2],why:x[3]}))}
+return qs.map((q,i)=>({...q,opts:q.opts.map((o,j)=>({o,correct:j===q.a})).sort((a,b)=>a.o.localeCompare(b.o,"zh"))}))}
+function startQuiz(kind="all"){state.quiz=quizData(kind);state.qi=0;state.answers={};state.submitted=false;state.tab="quiz";renderQuiz()}
+function renderQuiz(){let q=state.quiz[state.qi];let box=document.getElementById("lesson-content");if(!box){app.innerHTML=`<button class="secondary" data-backlesson>← Bài học</button><section id="lesson-content"></section>`;box=document.getElementById("lesson-content")}
+if(state.submitted){let correct=state.quiz.filter((q,i)=>state.answers[i]!==undefined&&q.opts[state.answers[i]].correct).length;box.innerHTML=`<div class="card"><div style="font-size:38px">🏆</div><h2>Kết quả bài kiểm tra</h2><div style="font-size:42px;color:var(--red);font-weight:900">${correct}/${state.quiz.length}</div><p>${Math.round(correct/state.quiz.length*100)}% câu trả lời đúng</p><button class="primary" data-review>Xem đáp án và giải thích</button> <button class="secondary" data-retry>Làm lại</button></div>`;return}
+if(state.review){box.innerHTML=`<h3 class="title">Đáp án và giải thích</h3>${state.quiz.map((q,i)=>`<div class="question"><b>${i+1}. ${q.q}</b><p class="${q.opts[state.answers[i]]?.correct?'':'muted'}">Bạn chọn: ${q.opts[state.answers[i]]?.o||"Chưa trả lời"}</p><p style="color:#287449">Đáp án: ${q.opts.find(x=>x.correct).o}</p><p class="muted small">${q.why}</p></div>`).join("")}<button class="primary" data-retry>Làm lại bài</button>`;return}
+box.innerHTML=`<div class="row between"><b>Câu ${state.qi+1}/${state.quiz.length}</b><span class="muted small">Đã chọn ${Object.keys(state.answers).length} câu</span></div><div class="progress"><span style="width:${(state.qi+1)/state.quiz.length*100}%"></span></div><div class="question"><div class="chip">CÂU HỎI ${state.qi+1}</div><h3>${q.q}</h3>${q.opts.map((o,i)=>`<button class="option ${state.answers[state.qi]===i?"chosen":""}" data-answer="${i}">${"ABCD"[i]}. ${o.o}</button>`).join("")}</div><div class="row between"><button class="secondary" data-qprev ${state.qi===0?"disabled":""}>← Câu trước</button><button class="primary" data-qnext>${state.qi===state.quiz.length-1?"Nộp bài":"Câu tiếp theo →"}</button></div>`}
+function render(){if(state.nav==="home")home();else if(state.nav==="courses")courses();else if(state.nav==="practice")practice()}
+document.querySelector("nav").addEventListener("click",e=>{let b=e.target.closest("[data-nav]");if(b)setNav(b.dataset.nav)});
+app.addEventListener("click",e=>{let b=e.target.closest("button");if(!b)return;
+if(b.dataset.course){state.course=b.dataset.course;state.nav="courses";setNav("courses");}
+else if(b.dataset.lesson){state.lesson=+b.dataset.lesson;state.tab="vocab";state.word=0;state.nav="lesson";lesson()}
+else if(b.hasAttribute("data-backlist")){state.nav="courses";setNav("courses")}
+else if(b.hasAttribute("data-backlesson")){state.nav="lesson";lesson()}
+else if(b.dataset.tab){state.tab=b.dataset.tab;renderTab()}
+else if(b.dataset.say){if("speechSynthesis"in window){let u=new SpeechSynthesisUtterance(b.dataset.say);u.lang="zh-CN";speechSynthesis.cancel();speechSynthesis.speak(u)}}
+else if(b.hasAttribute("data-flash")){let v=vocab();let i=0;let show=()=>{let w=v[i];document.getElementById("lesson-content").innerHTML=`<h3 class="title">🃏 Thẻ ghi nhớ ${i+1}/${v.length}</h3><div class="flash"><div class="hanzi">${w[0]}</div><div class="py">${w[1]}</div><button class="secondary" id="flip">Hiện nghĩa</button><div id="meaning"></div></div><div class="row between" style="margin-top:12px"><button class="secondary" id="prev">← Trước</button><button class="primary" id="next">Tiếp theo →</button></div>`;document.getElementById("flip").onclick=()=>document.getElementById("meaning").innerHTML=`<div class="meaning">${w[2]}</div><p>${w[3]}</p><p class="py">${w[4]}</p>`;document.getElementById("prev").onclick=()=>{i=(i-1+v.length)%v.length;show()};document.getElementById("next").onclick=()=>{i=(i+1)%v.length;show()}};show()}
+else if(b.dataset.practice){startQuiz(b.dataset.practice==="meaning"?"meaning":b.dataset.practice==="pinyin"?"pinyin":b.dataset.practice==="sentence"?"sentence":"all")}
+else if(b.hasAttribute("data-startquiz"))startQuiz("all")
+else if(b.dataset.answer!==undefined){state.answers[state.qi]=+b.dataset.answer;renderQuiz()}
+else if(b.hasAttribute("data-qprev")){state.qi=Math.max(0,state.qi-1);renderQuiz()}
+else if(b.hasAttribute("data-qnext")){if(state.qi<state.quiz.length-1){state.qi++;renderQuiz()}else{state.submitted=true;renderQuiz()}}
+else if(b.hasAttribute("data-review")){state.review=true;renderQuiz()}
+else if(b.hasAttribute("data-retry")){state.review=false;startQuiz("all")}
+});
+app.addEventListener("input",e=>{if(e.target.id==="filter"){let q=e.target.value.toLowerCase();document.getElementById("vocablist").innerHTML=vocab().map((w,i)=>({w,i})).filter(x=>x.w.join(" ").toLowerCase().includes(q)).map(x=>wordRow(x.w,x.i)).join("")}});
+function practice(){app.innerHTML=`<h2 class="title">✏️ Khu vực luyện tập</h2><div class="grid"><button class="card course" data-course="YCT3"><div class="emoji">🐼</div><h3>Ôn YCT 3</h3><p class="muted">Chọn bài học và luyện tập</p></button><button class="card course" data-course="HSK2"><div class="emoji">🌸</div><h3>Ôn HSK 2</h3><p class="muted">Chọn bài học và luyện tập</p></button></div>`}
+render();
+</script></body></html>
